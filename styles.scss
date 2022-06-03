@@ -1,0 +1,63 @@
+@import url(https://pro.fontawesome.com/releases/v5.2.0/css/all.css);
+@import url(https://codepen.io/z-/pen/a8e37caf2a04602ea5815e5acedab458?theme);
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+$optionDefaultColours: #ed5565, #fc6e51, #ffce54, #2ecc71, #5d9cec, #ac92ec;
+
+body {
+  display: flex;
+  font-display: none;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+
+  font-family: "Roboto", sans-serif;
+  transition: 0.25s;
+
+  @include dark {
+    background: #232223;
+    color: white;
+  }
+
+  .credit {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+
+    color: inherit;
+  }
+
+  .option {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+
+    min-width: 600px;
+    max-width: 900px;
+    width: calc(100% - 100px);
+
+    height: 400px;
+
+    @for $i from 1 through 4 {
+      @media screen and (max-width: 798px - $i*80) {
+        min-width: 600px - $i * 80;
+
+        .option:nth-child(#{6-$i}) {
+          display: none;
+        }
+      }
+    }
+
+    .option {
+      position: relative;
+      overflow: hidden;
+
+      min-width: 60px;
+      margin: 10px;
+
+      background: var(--optionBackground), var(--defaultBackground, #e6e9ed);
+    }
+  }
+}
